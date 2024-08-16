@@ -9,3 +9,8 @@ map("n", "<leader>wl", "<C-w>l")
 map("n", "<leader>wj", "<C-w>j")
 map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wh", "<C-w>h")
+
+map("n", "<leader>f<CR>", function()
+  local builtin = require("telescope.builtin")
+  builtin.resume()
+end)
