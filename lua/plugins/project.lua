@@ -13,7 +13,7 @@ return {
   {
     "ahmedkhalf/project.nvim",
     ---@param opts ProjectOptions
-    opts = function(_, opts)
+    config = function(_, opts)
       opts.manual_mode = true
       opts.detection_methods = { "pattern" }
       opts.silent_chdir = false
@@ -25,7 +25,7 @@ return {
         ".svn",
         "Makefile",
       }
-      return opts
+      require("project_nvim").setup(opts)
     end,
   },
 }
