@@ -31,9 +31,21 @@ return {
     ---@param opts TelescopeOptions
     opts = function(_, opts)
       local actions = require("telescope.actions")
-      opts.defaults.mappings.i["<C-j>"] = actions.move_selection_next
-      opts.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
+      local mappings = require("telescope.mappings")
+      mappings.default_mappings.i["<C-j>"] = actions.move_selection_next
+      mappings.default_mappings.i["<C-k>"] = actions.move_selection_previous
+      -- opts.defaults.mappings.i["<C-j>"] = actions.move_selection_next
+      -- opts.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
       return opts
+    end,
+  },
+  {
+    "saghen/blink.cmp",
+    ---@module 'blink'
+    ---@param opts blink.cmp.Config
+    opts = function(_, opts)
+      opts.keymap["<C-j>"] = { "select_next" }
+      opts.keymap["<C-k>"] = { "select_prev" }
     end,
   },
 }

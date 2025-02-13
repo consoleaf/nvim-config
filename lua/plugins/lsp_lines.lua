@@ -6,6 +6,13 @@ return {
         virtual_text = false,
         virtual_lines = true,
       },
+      servers = {
+        vtsls = {
+          on_attach = function(client, buffer)
+            require("twoslash-queries").attach(client, buffer)
+          end,
+        },
+      },
     },
   },
   {
@@ -18,5 +25,16 @@ return {
       })
       return opts
     end,
+  },
+  {
+    "marilari88/twoslash-queries.nvim",
+    opts = {
+      multi_line = true,
+      highlight = "Type",
+    },
+    keys = {
+      { "gCi", "<cmd>TwoslashQueriesInspect<CR>", desc = "Twoslash inspect" },
+      { "gCr", "<cmd>TwoslashQueriesRemove<CR>", desc = "Twoslash remove" },
+    },
   },
 }

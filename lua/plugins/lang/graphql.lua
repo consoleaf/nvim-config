@@ -9,11 +9,13 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        graphql = {},
-      },
-    },
+    -- opts = {
+    -- servers = {
+    -- graphql = {
+    --   filetypes = { "graphql", "gql" },
+    -- },
+    --   },
+    -- },
   },
   {
     "williamboman/mason.nvim",
