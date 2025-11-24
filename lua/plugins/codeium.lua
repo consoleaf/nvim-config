@@ -1,0 +1,39 @@
+-- return {
+--   {
+--     "Exafunction/codeium.vim",
+--     config = function()
+--       vim.keymap.set("i", "<c-g>", function()
+--         return vim.fn["codeium#Accept"]()
+--       end, { expr = true, silent = true })
+--       vim.keymap.set("i", "<c-;>", function()
+--         return vim.fn["codeium#CycleCompletions"](1)
+--       end, { expr = true, silent = true })
+--       vim.keymap.set("i", "<c-,>", function()
+--         return vim.fn["codeium#CycleCompletions"](-1)
+--       end, { expr = true, silent = true })
+--       vim.keymap.set("i", "<c-x>", function()
+--         return vim.fn["codeium#Clear"]()
+--       end, { expr = true, silent = true })
+--     end,
+--   },
+-- }
+--
+-- return {
+--   {
+--     "huggingface/llm.nvim",
+--     event = "VeryLazy",
+--     opts = {
+--       api_token = os.getenv("LLM_API_TOKEN"),
+--       backend = "openai",
+--       context_window = 8192,
+--       url = "https://llm.kaspersky-labs.com",
+--       -- url = "http://localhost:8081",
+--       model = "deepseek-coder-6.7b-base",
+--       lsp = {
+--         cmd_env = { LLM_LOG_LEVEL = "DEBUG" },
+--       },
+--     },
+--   },
+-- }
+
+return {}

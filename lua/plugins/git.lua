@@ -1,5 +1,12 @@
 return {
   {
+    "2kabhishek/co-author.nvim",
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    cmd = { "CoAuthor" },
+  },
+  {
     "akinsho/git-conflict.nvim",
     version = "*",
     config = true,
@@ -12,7 +19,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
+      "folke/snacks.nvim",
     },
     ---@param opts NeogitConfig
     opts = function(_, opts)
@@ -21,12 +28,16 @@ return {
 
       opts.graph_style = "unicode"
       opts.git_services = {
-        ["ittfs.avp.ru"] = "https://ittfs.avp.ru/tfs/DefaultCollection/${owner}/_git/${repo}/pullrequestcreate?sourceRef=${branch_name}&targetRef=${target}",
+        ["ittfs.avp.ru"] = {
+          tree = "https://ittfs.avp.ru/${owner}/${repo}/?version=GB${branch_name}&_a=contents",
+          pull_request = "https://ittfs.avp.ru/${owner}/${repo}/pullrequestcreate?sourceRef=${branch_name}",
+          commit = "https://ittfs.avp.ru/${owner}/${repo}/commit/${oid}",
+        },
       }
 
       opts.integrations = {
-        telescope = true,
         diffview = true,
+        snacks = true,
       }
 
       opts.mappings = {

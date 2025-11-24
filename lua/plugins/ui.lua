@@ -1,9 +1,11 @@
 return {
+  "nacro90/numb.nvim",
   {
     "haringsrob/nvim_context_vt",
     event = "BufRead",
     opts = {
       prefix = "",
+      min_rows = 5,
     },
   },
   {
@@ -15,5 +17,13 @@ return {
         hide_hidden = false, -- You might want to set this to false to see hidden files (files starting with .)
       }
     end,
+  },
+  {
+    "mistricky/codesnap.nvim",
+    build = "make",
+    opts = {
+      watermark = "",
+      bg_padding = 0,
+    },
   },
 }

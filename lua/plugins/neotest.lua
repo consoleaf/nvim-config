@@ -18,4 +18,23 @@ return {
       })
     end,
   },
+  {
+    "andythigpen/nvim-coverage",
+    dir = "/home/yakshibaev@avp.ru/projects/third-party/nvim-coverage/",
+    version = "*",
+    config = function()
+      require("coverage").setup({
+        auto_reload = true,
+      })
+
+      -- automatically load the coverage signs when opening a file
+      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+        pattern = { "*.ts" }, -- any file extension you're interested in
+        callback = function()
+          -- place (show) the signs immediately after loading
+          require("coverage").load(true)
+        end,
+      })
+    end,
+  },
 }

@@ -1,31 +1,14 @@
----@class ProjectOptions
----@field manual_mode boolean
----@field detection_methods ("lsp" | "pattern")[]
----@field patterns string[]
----@field ignore_lsp string[]
----@field exclude_dirs string[]
----@field show_hidden boolean
----@field silent_chdir boolean
----@field scope_chdir "global" | "tab" | "win"
----@field datapath string
-
 return {
   {
     "ahmedkhalf/project.nvim",
-    ---@param opts ProjectOptions
-    config = function(_, opts)
-      opts.manual_mode = true
-      opts.detection_methods = { "pattern" }
-      opts.silent_chdir = false
-      opts.patterns = {
+    opts = {
+      detection_methods = { "pattern" },
+      patterns = {
         ".git",
-        "_darcs",
-        ".hg",
-        ".bzr",
-        ".svn",
         "Makefile",
-      }
-      require("project_nvim").setup(opts)
-    end,
+        "yarn.lock",
+        "package-lock.json",
+      },
+    },
   },
 }

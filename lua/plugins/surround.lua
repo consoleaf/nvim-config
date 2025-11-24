@@ -13,11 +13,21 @@
 
 return {
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     ---@param opts MiniSurroundOpts
     opts = function(_, opts)
-      local ts_utils = require("nvim-treesitter.ts_utils")
+      local MiniSurround = require("mini.surround")
       opts.custom_surroundings = {
+        T = {
+          input = { "%f[%w_%.][%w_%.]+%b<>", "^.-%<().*()%>$" },
+          output = function()
+            local type_name = MiniSurround.user_input("Type name")
+            if type_name == nil then
+              return nil
+            end
+            return { left = ("%s<"):format(type_name), right = ">" }
+          end,
+        },
         -- Use tree-sitter to search for function call
         s = {
           -- input = function()
