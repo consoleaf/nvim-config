@@ -19,8 +19,7 @@ return {
     end,
   },
   {
-    "andythigpen/nvim-coverage",
-    dir = "/home/yakshibaev@avp.ru/projects/third-party/nvim-coverage/",
+    "consoleaf/nvim-coverage",
     version = "*",
     config = function()
       require("coverage").setup({
